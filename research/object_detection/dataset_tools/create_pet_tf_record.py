@@ -294,6 +294,8 @@ def main(_):
                                      'pets_fullbody_with_masks_train.record')
     val_output_path = os.path.join(FLAGS.output_dir,
                                    'pets_fullbody_with_masks_val.record')
+  print('label_map_dict: %s' %label_map_dict)
+  print('label_map_dict: %s' %FLAGS.label_map_path)
   create_tf_record(
       train_output_path,
       FLAGS.num_shards,
