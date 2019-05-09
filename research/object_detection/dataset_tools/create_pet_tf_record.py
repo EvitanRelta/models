@@ -162,7 +162,7 @@ def dict_to_tf_example(data,
       ymins.append(ymin / height)
       xmaxs.append(xmax / width)
       ymaxs.append(ymax / height)
-      class_name = get_class_name_from_filename(data['filename'])
+      class_name = data['object']['name']
       classes_text.append(class_name.encode('utf8'))
       classes.append(label_map_dict[class_name])
       truncated.append(int(obj['truncated']))
@@ -294,8 +294,7 @@ def main(_):
                                      'pets_fullbody_with_masks_train.record')
     val_output_path = os.path.join(FLAGS.output_dir,
                                    'pets_fullbody_with_masks_val.record')
-  print('label_map_dict: %s' %label_map_dict)
-  print('label_map_dict: %s' %FLAGS.label_map_path)
+
   create_tf_record(
       train_output_path,
       FLAGS.num_shards,
