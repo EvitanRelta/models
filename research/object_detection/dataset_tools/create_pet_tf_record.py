@@ -167,7 +167,6 @@ def dict_to_tf_example(data,
       class_name = data['object'][0]['name']
       classes_text.append(class_name.encode('utf8'))
           
-      print('label_map_dict: %s' %label_map_dict)
       classes.append(label_map_dict[class_name])
       truncated.append(int(obj['truncated']))
       poses.append(obj['pose'].encode('utf8'))
@@ -273,7 +272,7 @@ def create_tf_record(output_filename,
 def main(_):
   data_dir = FLAGS.data_dir
   label_map_dict = label_map_util.get_label_map_dict(FLAGS.label_map_path)
-
+  print('> SHAUN\' DEBUG INFO:\nlabel_map_dict: %s' %label_map_dict)
   logging.info('Reading from Pet dataset.')
   image_dir = os.path.join(data_dir, 'images')
   annotations_dir = os.path.join(data_dir, 'annotations')
