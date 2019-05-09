@@ -164,7 +164,7 @@ def dict_to_tf_example(data,
       ymaxs.append(ymax / height)
       if 'object' not in data:
           raise Exception('No "object" in data')
-      class_name = data['object'][0]
+      class_name = data['object'][0]['name']
       classes_text.append(class_name.encode('utf8'))
       classes.append(label_map_dict[class_name])
       truncated.append(int(obj['truncated']))
