@@ -166,6 +166,8 @@ def dict_to_tf_example(data,
           raise Exception('No "object" in data')
       class_name = data['object'][0]['name']
       classes_text.append(class_name.encode('utf8'))
+          
+      print('label_map_dict: %s' %label_map_dict)
       classes.append(label_map_dict[class_name])
       truncated.append(int(obj['truncated']))
       poses.append(obj['pose'].encode('utf8'))
