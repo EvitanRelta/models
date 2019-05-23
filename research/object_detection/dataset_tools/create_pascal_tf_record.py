@@ -154,7 +154,7 @@ def main(_):
   years = ['VOC2007', 'VOC2012']
   if FLAGS.year != 'merged':
     years = [FLAGS.year]
-
+  print(FLAGS.output_path)
   writer = tf.python_io.TFRecordWriter(FLAGS.output_path)
 
   label_map_dict = label_map_util.get_label_map_dict(FLAGS.label_map_path)
